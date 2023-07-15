@@ -4,6 +4,10 @@
 
 var generateBtn = document.querySelector("#generate")
 
+const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const lowerCase = "abcdefghijklmnopqrstuvwxyz"
+const numbers = "0123456789"
+const symbol = "~!@#$%^&*()_+"
  
 
 // Write password to the #password input
@@ -14,35 +18,30 @@ function generatePassword() {
 
   console.log(passwordLength);
 
-  var containsUppercase = function() {confirm("Would you like your password to contain Uppercase Characters?");}
-
-  containsUppercase();
-  
-  var containsLowercase = function() {confirm("Would you like your password to contain Lowercase Characters?");}
-
-  containsLowercase();
-  
-  var containsNumbers = function() {confirm("Would you like your password to contain Numbers?");}
-
-  containsNumbers();
-
-  var containsSymbols = function() {confirm("Would you like your password to contain Symbols?");}
-
-  containsSymbols();
-
-
-
- 
+  var allowedChar = "";
+  var containsUppercase = confirm("Would you like your password to contain Uppercase Characters?");
+  console.log(containsUppercase);
+  if (containsUppercase === true) {
+    allowedChar = upperCase.concat(allowedChar);
+    console.log("allowedChar=" + allowedChar);
+  }
   
 
+   
+  var containsLowercase = confirm("Would you like your password to contain Lowercase Characters?");
+  console.log(containsLowercase);
 
+  var containsNumbers = confirm("Would you like your password to contain Numbers?");
+  console.log(containsNumbers);
 
+  var containsSymbols = confirm("Would you like your password to contain Symbols?");
+  console.log(containsSymbols);
 
-
-
-
-
-
+  for (let index = 0; index < passwordLength; index++) {
+    const element = array[index];
+    
+  }
+  
     // generator will need to prompt user for pasword criteria
 
     // password length 8 < 128
@@ -57,13 +56,7 @@ function generatePassword() {
 
    
 
-    const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-    const lowerCase = "abcdefghijklmnopqrstuvwxyz"
-
-    const numbers = "0123456789"
-
-    const symbol = "~!@#$%^&*()_+"
+   
 
  
 
