@@ -16,11 +16,17 @@ No installation required, navigate to "[github hosted version of html here](http
 3. Enter what characters you would like included. True = "OK", False = "Cancel"
 4. Run the generator again
 
-![Webpage Screenshot](/Assets/Images/Screenshot 2023-07-12 221520.jpg)
+![Webpage Screenshot](/Assets/Images/splash_page.png)
+![Webpage Screenshot](/Assets/Images/password_length.png)
+![Webpage Screenshot](/Assets/Images/uppercase.png)
+![Webpage Screenshot](/Assets/Images/lowercase.png)
+![Webpage Screenshot](/Assets/Images/numbers.png)
+![Webpage Screenshot](/Assets/Images/symbols.png)
+![Webpage Screenshot](/Assets/Images/generated_pass.png)
 
 ## Credits
 
-Thank you to Jesse for support and assistance troubleshooting
+Rutgers Full Stack Coding Bootcamp for starter code
 
 ## License
 
@@ -28,4 +34,4 @@ MIT License.
 
 ## Features
 
-Internal navigation links and elements. Psuedo elements. Flexbox
+Javascript Prompts, Confirms.
