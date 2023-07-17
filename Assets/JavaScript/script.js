@@ -1,110 +1,70 @@
-// Assignment Code
-
-// Sets a variable called generateBtn, which will select the id #generate in the html doc using querySelector
-
+// This line selects the element with the id "generate" in the HTML document and assigns it to the variable "generateBtn"
 var generateBtn = document.querySelector("#generate")
 
+// The following lines assign a string of all uppercase letters, lowercase letters, numbers, and symbols to respective variables
 const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const lowerCase = "abcdefghijklmnopqrstuvwxyz"
 const numbers = "0123456789"
 const symbol = "~!@#$%^&*()_+"
- 
 
-// Write password to the #password input
-
+// The generatePassword function is where the main logic for generating the password occurs
 function generatePassword() {
+  
+  // The user is prompted to input a password length between 8 and 128, which is then converted to a Number and stored in the variable "passwordLength"
+  let passwordLength = Number(window.prompt("Please enter a number between 8 and 128, this will be the length of your pasword:", "8 - 128"));
+  
+  // This string will hold all possible characters for the password
+  let allowedChar = "";
 
-  const passwordLength = Number(window.prompt("Please enter a number between 8 and 128, this will be the length of your pasword:", ""));
+  // The following series of prompts ask the user if they want to include uppercase letters, lowercase letters, numbers, and symbols in their password
+  // If they confirm, the respective string is added to the allowedChar string
 
-  console.log(passwordLength);
-
-  var allowedChar = "";
   var containsUppercase = confirm("Would you like your password to contain Uppercase Characters?");
-  console.log(containsUppercase);
   if (containsUppercase === true) {
     allowedChar = upperCase.concat(allowedChar);
-    console.log("allowedChar=" + allowedChar);
-  }
-  
-
+  };
    
   var containsLowercase = confirm("Would you like your password to contain Lowercase Characters?");
-  console.log(containsLowercase);
+  if (containsLowercase === true) {
+    allowedChar = lowerCase.concat(allowedChar);
+  };
 
   var containsNumbers = confirm("Would you like your password to contain Numbers?");
-  console.log(containsNumbers);
+  if (containsNumbers === true) {
+    allowedChar = numbers.concat(allowedChar);
+  };
 
   var containsSymbols = confirm("Would you like your password to contain Symbols?");
-  console.log(containsSymbols);
+  if (containsSymbols === true) {
+    allowedChar = symbol.concat(allowedChar);
+  };
 
-  for (let index = 0; index < passwordLength; index++) {
-    const element = array[index];
-    
-  }
+  // This line initializes an empty string that will be filled with the generated password
+  let password = ""
   
-    // generator will need to prompt user for pasword criteria
+  // This loop will continue until the generated password has reached the user-defined length
+  // Each iteration, a random character is selected from the allowedChar string and added to the password string
+  for (var i = 0; i < passwordLength; i++) { 
+    var generatedString = allowedChar.charAt(Math.floor(Math.random() * allowedChar.length));
+    password = generatedString.concat(password);
+   };
+  
+  // This function will return the generated password when called
+  return password;
+};
 
-    // password length 8 < 128
-
-    // lowercase, Uppercase, numbers, special characters
-
-    // Validate data, ensure at least one of each is selected
-
-    // Display the generated password
-
- 
-
-   
-
-   
-
- 
-
-    let password = "";
-
-    for (let i = 0; i < passwordLength.length; i++) {
-
-        const element = array[i];
-
-       
-
-    }
-
- 
-
-    return "generated password will go here";
-
-}
-
-
-
-
-
-
-// creeating a function called writePassword. Contained within we are giving the function a few local variables
-
-// var password is using generatePassword function built by user
-
-// var passwordText is targeting #password id in the html doc
-
-// passwordText value will be equal to whatever the generatePassword function returns
-
+// This function will write the generated password to the HTML document
 function writePassword() {
+  
+  // This line generates a new password and stores it in the variable "password"
+  var password = generatePassword();
+  
+  // This line selects the element with the id "password" from the HTML document and assigns it to the variable "passwordText"
+  var passwordText = document.querySelector("#password");
 
-    var password = generatePassword();
-
-    var passwordText = document.querySelector("#password");
-
- 
-
-    passwordText.value = password;
-
+  // This line changes the value of the "password" element in the HTML document to the generated password
+  passwordText.value = password;
 }
 
- 
-
-// add event listener
-
-// script will wait to write the generated password to the html doc until the generate button is clicked
-
-generateBtn.addEventListener("click", writePassword)
+// This line adds an event listener to the "generate" button, causing it to call the writePassword function when clicked
+generateBtn.addEventListener("click", writePassword) 
