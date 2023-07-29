@@ -13,6 +13,13 @@ function generatePassword() {
   // The user is prompted to input a password length between 8 and 128, which is then converted to a Number and stored in the variable "passwordLength"
   let passwordLength = Number(window.prompt("Please enter a number between 8 and 128, this will be the length of your pasword:", "8 - 128"));
   
+  // This while loop will continue until the user inputs a valid password length
+
+  while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
+    passwordLength = Number(window.prompt("Please enter a valid number between 8 and 128, this will be the length of your pasword:", "8 - 128"));
+  };
+  
+
   // This string will hold all possible characters for the password
   let allowedChar = "";
 
@@ -68,3 +75,4 @@ function writePassword() {
 
 // This line adds an event listener to the "generate" button, causing it to call the writePassword function when clicked
 generateBtn.addEventListener("click", writePassword) 
+
